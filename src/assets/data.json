@@ -1,0 +1,31 @@
+[{
+
+		"tenantId": "NCET",
+		"email": "acc@ncet.com",
+		"serviceId": "dhiacc101",
+		"apiKey": "jkeshsiandj7485lol"
+
+	},
+	{
+
+		"tenantId": "NCET",
+		"email": "cse@ncet.com",
+		"serviceId": "dhidept102",
+		"apiKey": "jdgsthy485dhd"
+
+	}, {
+
+		"tenantId": "BMSIT",
+		"email": "acc@bmsit.com",
+		"serviceId": "dhiacc102",
+		"apiKey": "odkydhyd747dgd"
+
+	}, {
+
+		"tenantId": "BMSIT",
+		"email": "exams@bmsit.com",
+		"serviceId": "dhiexam212",
+		"apiKey": "kijuhygsfvac445ksjs"
+
+	}
+]

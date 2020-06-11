@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "dhi-app"
+    }
+  },
+  "defaultProject": "dhi-app",
+  "cli": {
+    "analytics": false
+  }
 }

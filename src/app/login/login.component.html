@@ -1,0 +1,29 @@
+<h2 class="text-info ml-2 mt-2">Admin App to manage API's</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-4">
+            <h3>Login</h3>
+            <form [formGroup]="loginForm" (ngSubmit)="validateLogin()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="email" class="form-control" id="username" formControlName="username">
+                    <div *ngIf="username.touched && !username.valid">
+                        <div *ngIf="username.errors.required" class="alert alert-danger">Username cant be empty</div>
+                        <div *ngIf="username.errors.minlength" class="alert alert-danger">Username should have min 3
+                            characters</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                    <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+                        Password can't be empty
+                    </div>
+                </div>
+                <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>
