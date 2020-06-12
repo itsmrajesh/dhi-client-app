@@ -21,6 +21,9 @@ const routes: Routes = [
         component: ServicesComponent
       }
     ]
+  }, {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

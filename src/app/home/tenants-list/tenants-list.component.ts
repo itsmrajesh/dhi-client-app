@@ -2,8 +2,9 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { Tenant } from './../model/tenant';
 import { HomeService } from './../home.service';
 import { Component, OnInit } from '@angular/core';
-
-declare var bootbox: any;
+import { } from 'jquery'
+import { } from 'bootstrap';
+import { confirm } from 'bootbox';
 
 @Component({
   selector: 'app-tenants-list',
@@ -22,7 +23,11 @@ export class TenantsListComponent implements OnInit {
 
   selectedTenant: Tenant;
 
-  bbox: any;
+  // const $ = require('jquery');
+  // jQuery = require("jquery");
+  // bootstrap = require('bootstrap');
+  // bootbox = require('bootbox');
+
 
 
   constructor(private homeService: HomeService, private formBuilder: FormBuilder) {
@@ -40,7 +45,6 @@ export class TenantsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadTenants();
-    this.bbox = bootbox;
   }
 
   loadTenants() {
@@ -71,7 +75,7 @@ export class TenantsListComponent implements OnInit {
   }
 
   delete(tenant: Tenant) {
-    this.bbox.confirm({
+    confirm({
       size: 'small',
       message: 'Are you sure?',
       callback(result) {
