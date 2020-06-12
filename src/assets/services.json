@@ -1,0 +1,21 @@
+[{
+    "id": "dhiacc101",
+    "name": "NCET Account Section",
+    "description": "View and manage fees details of students and payments"
+},
+{
+    "id": "dhidept102",
+    "name": "NCET CSE Dept data",
+    "description": "View All faculty details"
+},
+{
+    "id": "dhiexam212",
+    "name": "BMSIT Examnation Section",
+    "description": "View and manage student results data"
+},
+{
+    "id": "dhiacc102",
+    "name": "BMSIT Account Section",
+    "description": "View and manage fees details of students and payments"
+}
+]

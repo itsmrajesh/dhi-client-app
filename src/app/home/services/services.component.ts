@@ -1,3 +1,5 @@
+import { HomeService } from './../home.service';
+import { ApiInfo } from './../model/api-key';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicesComponent implements OnInit {
 
-  constructor() { }
+  apiServices: ApiInfo[] = [];
+
+  constructor(private homeService: HomeService) { }
 
   ngOnInit(): void {
+    this.loadApiServices();
+  }
+
+  loadApiServices() {
+    this.homeService.getApiServices().subscribe(resp => {
+      this.apiServices = resp;
+    });
   }
 
 }

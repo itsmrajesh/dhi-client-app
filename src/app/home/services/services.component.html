@@ -1,1 +1,30 @@
-<p>services works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <div *ngIf="apiServices.length>0">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Service ID</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description </th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let service of apiServices;index as i">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{service.id}}</td>
+                            <td>{{service.name}}</td>
+                            <td>{{service.description}}</td>
+                            <td><i class="fas fa-edit" data-toggle="modal" data-target="#updateModal"></i></td>
+                            <td><i class="fa fa-trash"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
