@@ -1,3 +1,4 @@
+import { AppServiceService } from './../../app-service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  user: string;
+
+  constructor(private appService: AppServiceService) { }
 
   ngOnInit(): void {
+    this.user = this.appService.logedInUser;
   }
 
 }

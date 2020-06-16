@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,7 +18,8 @@ import { ServicesComponent } from './services/services.component';
     HomeRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class HomeModule { }

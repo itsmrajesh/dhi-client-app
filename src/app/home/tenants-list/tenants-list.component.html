@@ -2,9 +2,9 @@
 
     <div class="row">
 
-        <div class="col-md-8">
-
+        <div class="col-md-12">
             <div class="row mt-2">
+
                 <div class="col-md-3">
                     <div class="form-group" *ngIf="tenantIds.length>0">
                         <select class="custom-select" #selectedTenant (change)="onChangeTenant(selectedTenant.value)">
@@ -13,7 +13,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <input class="form-control" type="text" placeholder="Search">
                 </div>
 
@@ -22,7 +22,15 @@
                         data-target="#newtenantmodal">New</button>
                 </div>
 
+
             </div>
+        </div>
+
+
+
+        <div class="col-md-10">
+
+
             <table class="table">
                 <thead>
                     <tr>
@@ -32,7 +40,6 @@
                         <th scope="col">Service ID</th>
                         <th scope="col">API Key</th>
                         <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,7 +51,6 @@
                         <td>{{tenant.apiKey}}</td>
                         <td><i class="fas fa-edit" data-toggle="modal" data-target="#updateModal"
                                 (click)="edit(tenant)"></i></td>
-                        <td><i class="fa fa-trash" (click)="delete(tenant)"></i></td>
                     </tr>
                 </tbody>
             </table>
