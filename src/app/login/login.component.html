@@ -6,11 +6,11 @@
             <h3>Login</h3>
             <form [formGroup]="loginForm" (ngSubmit)="validateLogin()">
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="email" class="form-control" id="username" formControlName="username">
-                    <div *ngIf="username.touched && !username.valid">
-                        <div *ngIf="username.errors.required" class="alert alert-danger">Username cant be empty</div>
-                        <div *ngIf="username.errors.minlength" class="alert alert-danger">Username should have min 3
+                    <label for="email">email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                    <div *ngIf="email.touched && !email.valid">
+                        <div *ngIf="email.errors.required" class="alert alert-danger">email cant be empty</div>
+                        <div *ngIf="email.errors.minlength" class="alert alert-danger">email should have min 3
                             characters</div>
                     </div>
                 </div>

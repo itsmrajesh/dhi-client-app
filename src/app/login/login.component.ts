@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {
     this.loginForm = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', Validators.required]
     });
 
@@ -26,26 +26,26 @@ export class LoginComponent implements OnInit {
   }
 
   validateLogin() {
-    console.log(this.username.value);
-    console.log(this.password.value);
 
-    const user = { email: this.username.value, password: this.password.value };
+    const user = this.loginForm.value;
 
     this.authService.login(user).subscribe(
-      res => {
-        console.log(res);
-        this.router.navigateByUrl('/home');
-      },
-      err => {
-        console.error(err);
+      sucess => {
+        if (sucess) {
+          this.router.navigateByUrl('/home');
+        } else {
+          console.log(sucess);
+        }
 
+      }, error => {
+        console.log(error);
       }
-    )
+    );
 
   }
 
-  get username() {
-    return this.loginForm.get('username');
+  get email() {
+    return this.loginForm.get('email');
   }
 
   get password() {
