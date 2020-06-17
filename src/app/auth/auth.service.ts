@@ -19,7 +19,7 @@ export class AuthService {
   logedUser: string;
 
   login(user: LoginRequest): Observable<boolean> {
-    return this.http.post<any>(`${this.base_url}login`, user).pipe(
+    return this.http.post<any>(`${this.base_url}login`, user, { headers: { skip: 'true' } }).pipe(
       tap(token => this.loginInit(user, token)),
       mapTo(true),
       catchError(err => {
@@ -34,10 +34,26 @@ export class AuthService {
     this.storeJwtToken(token['token']);
   }
 
-
-
   private storeJwtToken(token: string) {
     localStorage.setItem(this.JWT_TOKEN, token);
+  }
+
+  isUserLogedIn() {
+    return !!this.getJwtToken();
+  }
+
+  getJwtToken() {
+    return localStorage.getItem(this.JWT_TOKEN);
+  }
+
+
+  logOut() {
+    this.logedUser = '';
+    this.removeJwtToken();
+  }
+
+  private removeJwtToken() {
+    localStorage.removeItem(this.JWT_TOKEN);
   }
 
 

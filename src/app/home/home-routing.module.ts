@@ -1,3 +1,4 @@
+import { AuthGuard } from './../auth/auth.guard';
 import { TenantsListComponent } from './tenants-list/tenants-list.component';
 import { HomeComponent } from './home.component';
 import { NgModule } from '@angular/core';
@@ -18,7 +19,8 @@ const routes: Routes = [
         component: TenantsListComponent
       }, {
         path: 'services',
-        component: ServicesComponent
+        component: ServicesComponent,
+        canActivate:[AuthGuard]
       }
     ]
   }, {
