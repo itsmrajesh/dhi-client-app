@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  base_url: 'http://dhiapikeygen-env.eba-zddiip6y.ap-south-1.elasticbeanstalk.com/'
 };
 
 /*
