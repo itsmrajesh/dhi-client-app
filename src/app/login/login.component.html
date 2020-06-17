@@ -1,29 +1,42 @@
 <h2 class="text-info ml-2 mt-2">Admin App to manage API's</h2>
 <div class="container">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-4">
-            <h3>Login</h3>
-            <form [formGroup]="loginForm" (ngSubmit)="validateLogin()">
-                <div class="form-group">
-                    <label for="email">email</label>
-                    <input type="email" class="form-control" id="email" formControlName="email">
-                    <div *ngIf="email.touched && !email.valid">
-                        <div *ngIf="email.errors.required" class="alert alert-danger">email cant be empty</div>
-                        <div *ngIf="email.errors.minlength" class="alert alert-danger">email should have min 3
-                            characters</div>
+    <div class="py-2">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <span class="anchor" id="formLogin"></span>
+                <!-- form card login -->
+                <div class="card rounded-0">
+                    <div class="card-header">
+                        <h3 class="mb-0">Login</h3>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" formControlName="password">
-                    <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
-                        Password can't be empty
+                    <div class="card-body">
+                        <form [formGroup]="loginForm" (ngSubmit)="validateLogin()">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" formControlName="email">
+                                <div *ngIf="email.touched && !email.valid">
+                                    <div *ngIf="email.errors.required" class="alert alert-danger">email cant be empty
+                                    </div>
+                                    <div *ngIf="email.errors.minlength" class="alert alert-danger">email should have min
+                                        3
+                                        characters</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" formControlName="password">
+                                <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+                                    Password can't be empty
+                                </div>
+                            </div>
+                            <button type="submit" [disabled]="!loginForm.valid"
+                                class="btn btn-primary float-right">Login</button>
+                        </form>
                     </div>
+                    <!--/card-block-->
                 </div>
-                <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
-            </form>
+                <!-- /form card login -->
+            </div>
         </div>
-        <div class="col-md-3"></div>
     </div>
 </div>

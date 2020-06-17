@@ -1,3 +1,4 @@
+import { JwtService } from './jwt.service';
 import { LoginRequest } from './../home/model/login-request';
 import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -10,7 +11,9 @@ import { catchError, mapTo, tap } from 'rxjs/operators';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              //private jwtService: JwtService
+              ) { }
 
   base_url = environment.base_url;
 
@@ -29,9 +32,11 @@ export class AuthService {
   }
 
 
-  private loginInit(user: LoginRequest, token: string) {
+  private loginInit(user: LoginRequest, tokenObj: string) {
     this.logedUser = user.email;
-    this.storeJwtToken(token['token']);
+    // tslint:disable-next-line: no-string-literal
+    const token = tokenObj['token'];
+    this.storeJwtToken(token);
   }
 
   private storeJwtToken(token: string) {
@@ -43,7 +48,17 @@ export class AuthService {
   }
 
   getJwtToken() {
-    return localStorage.getItem(this.JWT_TOKEN);
+    const token = localStorage.getItem(this.JWT_TOKEN);
+    /*if (token) {
+      if (this.jwtService.isExpired(token)) {
+        return null;
+      } else {
+        return token;
+      }
+    } else {
+      return null;
+    }*/
+    return token;
   }
 
 
