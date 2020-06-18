@@ -3,7 +3,7 @@
 # Local installation commands
 
 ```bash 
-https://github.com/itsmrajesh/dhi-client-app.git
+git clone https://github.com/itsmrajesh/dhi-client-app.git
 
 cd dhi-client-app
 
