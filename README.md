@@ -1,5 +1,7 @@
 # DHI Client App
 
+# Local installation commands
+
 ```bash 
 https://github.com/itsmrajesh/dhi-client-app.git
 
@@ -7,7 +9,7 @@ cd dhi-client-app
 
 npm i
 
-ng s -0
+ng s -o
 ```
 
-Live: https://itsmrajesh.github.io/dhi-client-app/
+Live preview: https://itsmrajesh.github.io/dhi-client-app/
