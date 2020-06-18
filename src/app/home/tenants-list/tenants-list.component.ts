@@ -32,10 +32,9 @@ export class TenantsListComponent implements OnInit {
 
   constructor(private homeService: HomeService, private formBuilder: FormBuilder) {
     this.newApiRegForm = this.formBuilder.group({
-      tenantId: [Validators.required],
-      email: [Validators.required,Validators.email],
-      serviceId: [Validators.required],
-      apiKey: []
+      tenantId: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      serviceId: ['', Validators.required]
     });
 
     this.updateForm = this.formBuilder.group({
@@ -63,7 +62,18 @@ export class TenantsListComponent implements OnInit {
 
 
   addNewApi() {
-    console.log(this.newApiRegForm.value);
+    this.homeService.newApiReg(this.newApiRegForm.value).subscribe(resp => {
+
+      console.log(resp);
+
+    },
+      err => {
+        console.log(err);
+
+      }
+
+
+    );
   }
 
   edit(tenant: Tenant) {
@@ -83,6 +93,23 @@ export class TenantsListComponent implements OnInit {
       }
     });
   }
+
+  get tenantId() {
+    return this.newApiRegForm.get('tenantId');
+  }
+
+
+  get email() {
+    return this.newApiRegForm.get('email');
+  }
+
+
+
+  get serviceId() {
+    return this.newApiRegForm.get('serviceId');
+  }
+
+
 
 
 }

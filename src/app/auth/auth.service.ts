@@ -15,7 +15,7 @@ export class AuthService {
               //private jwtService: JwtService
               ) { }
 
-  base_url = environment.base_url;
+  base_url = environment.base_url_login;
 
   private JWT_TOKEN = 'DHI_JWT_TOKEN';
 

@@ -82,17 +82,32 @@
                     <form [formGroup]="newApiRegForm" (ngSubmit)="addNewApi()">
                         <div class="form-group">
                             <label for="tenantid">TenantId</label>
-                            <input type="text" class="form-control" id="tenantid" formControlName="tenantId">
+                            <input [class.is-invalid]="tenantId.touched && tenantId.invalid" type="text" class="form-control" id="tenantid" formControlName="tenantId">
+
+                            <div *ngIf="tenantId.touched && tenantId.invalid">
+                                <small *ngIf="email.errors.required" class="text-danger">TenantId cant be empty</small>
+                            </div>
 
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" formControlName="email">
+                            <input [class.is-invalid]="email.touched && email.invalid" type="email" class="form-control" id="email" formControlName="email">
+
+                            <div *ngIf="email.touched && email.invalid">
+                                <small *ngIf="email.errors.required" class="text-danger">Email cant be empty</small>
+                                <small *ngIf="email.errors.email" class="text-danger">Invalid Email</small>
+                            </div>
+
                         </div>
 
                         <div class="form-group">
                             <label for="serviceId">ServiceId</label>
-                            <input type="text" class="form-control" id="serviceId" formControlName="serviceId">
+                            <input [class.is-invalid]="serviceId.touched && serviceId.invalid"  type="text" class="form-control" id="serviceId" formControlName="serviceId">
+                        
+                            <div *ngIf="serviceId.touched && serviceId.invalid">
+                                <small *ngIf="email.errors.required" class="text-danger">ServiceId cant be empty</small>
+                            </div>
+
                         </div>
 
                         <!-- <div class="form-group">
@@ -102,7 +117,7 @@
 
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Add</button>
+                            <button type="submit" [disabled]="newApiRegForm.invalid" class="btn btn-primary">Add</button>
                         </div>
                     </form>
                 </div>
