@@ -1,4 +1,4 @@
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Tenant } from './../model/tenant';
 import { HomeService } from './../home.service';
 import { Component, OnInit } from '@angular/core';
@@ -32,9 +32,9 @@ export class TenantsListComponent implements OnInit {
 
   constructor(private homeService: HomeService, private formBuilder: FormBuilder) {
     this.newApiRegForm = this.formBuilder.group({
-      tenantId: [],
-      email: [],
-      serviceId: [],
+      tenantId: [Validators.required],
+      email: [Validators.required,Validators.email],
+      serviceId: [Validators.required],
       apiKey: []
     });
 
